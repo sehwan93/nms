@@ -22,13 +22,17 @@ public class BoardDAOTest {
 	@Test
 	public void testCreate() throws Exception {
 		BoardVO board = new BoardVO();
-		board.setTitle("Å×½ºÆ® Á¦¸ñ");
-		board.setContent("Å×½ºÆ® ³»¿ë");
+		
+		
+		for(int i = 0 ; i <300; i++ ) {
+		board.setTitle("íŽ˜ì´ì§• í…ŒìŠ¤íŠ¸ ì œëª©");
+		board.setContent("íŽ˜ì´ì§• í…ŒìŠ¤íŠ¸ ë‚´ìš©");
 		board.setWriter("tester00");
 		dao.create(board);
+		}
 	}
 	
-	@Test
+/*	@Test
 	public void testRead() throws Exception {
 		logger.info(dao.read(2).toString());
 	}
@@ -37,13 +41,13 @@ public class BoardDAOTest {
 	public void testUpdate() throws Exception {
 		BoardVO board = new BoardVO();
 		board.setBno(1);
-		board.setTitle("Å×½ºÆ® ¼öÁ¤µÈ ±Û");
-		board.setContent("Å×½ºÆ® ¼öÁ¤µÈ ³»¿ë");
+		board.setTitle("ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
+		board.setContent("ï¿½×½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		dao.update(board);
 	}
 	
 	@Test
 	public void testDelete() throws Exception {
 		dao.delete(1);
-	}
+	}*/
 }

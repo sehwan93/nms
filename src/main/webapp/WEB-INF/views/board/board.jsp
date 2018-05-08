@@ -23,8 +23,7 @@
 	<%@include file="../common/javascript.jsp" %>
 	<script>
 		$(document).ready(function(){
-			$("#main_text").html("낭만섬 게시판");
-			$("#sub_text").html("모르는거 물어보고~ 자유롭게 얘기하는 곳입니당~");
+			init_board();
 		});
 	</script>
 </body>
