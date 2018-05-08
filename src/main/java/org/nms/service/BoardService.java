@@ -2,6 +2,7 @@ package org.nms.service;
 
 import java.util.List;
 
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 
 public interface BoardService {
@@ -14,4 +15,6 @@ public interface BoardService {
 	public void remove(Integer bno) throws Exception;
 	
 	public List<BoardVO> listAll() throws Exception;
+	
+	public List<BoardVO> listPage(Criteria cri) throws Exception;
 }

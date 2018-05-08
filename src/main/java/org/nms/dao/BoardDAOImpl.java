@@ -3,6 +3,7 @@ package org.nms.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,6 +39,13 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return session.selectList(namespace+".listAll");
+	}
+
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+		
+		
+		return session.selectList(namespace+".listPage",cri);
 	}
 	
 

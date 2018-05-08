@@ -2,6 +2,7 @@ package org.nms.dao;
 
 import java.util.List;
 
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 
 public interface BoardDAO {
@@ -15,4 +16,6 @@ public interface BoardDAO {
 	public void delete(Integer bno) throws Exception;
 	
 	public List<BoardVO> listAll() throws Exception;
+	
+	public List<BoardVO> listPage(Criteria cri) throws Exception;
 }

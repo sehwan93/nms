@@ -1,8 +1,11 @@
 package org.nms;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nms.dao.BoardDAO;
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +22,7 @@ public class BoardDAOTest {
 	
 	private static Logger logger = LoggerFactory.getLogger(BoardDAOTest.class);
 	
-	@Test
+/*	@Test
 	public void testCreate() throws Exception {
 		BoardVO board = new BoardVO();
 		
@@ -30,7 +33,7 @@ public class BoardDAOTest {
 		board.setWriter("tester00");
 		dao.create(board);
 		}
-	}
+	}*/
 	
 /*	@Test
 	public void testRead() throws Exception {
@@ -50,4 +53,17 @@ public class BoardDAOTest {
 	public void testDelete() throws Exception {
 		dao.delete(1);
 	}*/
+	
+	@Test
+	public void testListPage() throws Exception {
+		Criteria cri = new Criteria();
+		cri.setPage(3);
+		cri.setPerPageNum(20);
+		
+		List<BoardVO> list = dao.listPage(cri);
+		
+		for(BoardVO board : list ) {
+			System.out.println(board.getBno());
+		}
+	}
 }

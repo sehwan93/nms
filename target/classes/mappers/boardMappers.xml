@@ -37,4 +37,18 @@
 			bno desc, regdate desc
 		]]>
 	</select>
+	
+	<select id="listPage" resultType="BoardVO">
+		<![CDATA[
+		SELECT *
+		FROM (
+		      SELECT ROWNUM rm,a.*
+		      FROM (  SELECT *
+		              FROM tbl_board
+		              ORDER BY bno ASC) a
+		      )
+		WHERE rm>=#{pageStart} and rm<=(#{pageStart}+#{perPageNum})
+		]]>
+		
+	</select>
 </mapper>

@@ -1,6 +1,7 @@
 package org.nms.controller;
 
 import org.nms.service.BoardService;
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +46,13 @@ public class BoardController {
 		model.addAttribute("list",service.listAll());
 	}
 	
+	@RequestMapping(value="/listCri",method=RequestMethod.GET)
+	public void listAll(Criteria cri,Model model) throws Exception{
+		logger.info("listcri...........................");
+		
+		model.addAttribute("list",service.listPage(cri));
+	}
+	
 	@RequestMapping(value="/read",method=RequestMethod.GET)
 	public void read(@RequestParam("bno") int bno,Model model) throws Exception {
 		model.addAttribute(service.read(bno));
@@ -70,5 +78,7 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
+	
+	
 	
 }

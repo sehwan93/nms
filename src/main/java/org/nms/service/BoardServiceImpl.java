@@ -3,6 +3,7 @@ package org.nms.service;
 import java.util.List;
 
 import org.nms.dao.BoardDAO;
+import org.nms.util.Criteria;
 import org.nms.vo.BoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<BoardVO> listAll() throws Exception {
 		return dao.listAll();
+	}
+
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return dao.listPage(cri);
 	}
 	
 
