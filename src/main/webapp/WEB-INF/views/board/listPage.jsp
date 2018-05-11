@@ -30,10 +30,10 @@
 			<c:forEach items="${list }" var="boardVO">
 				<tr>
 					<td>${boardVO.bno }</td>
-					<td><a href='/board/read?bno=${boardVO.bno }'>${boardVO.title }</a></td>
+					<td><a href='/board/readPage${pageMaker.makeQuery(PageMaker.cri.page)}&bno=${boardVO.bno}'>${boardVO.title }</a></td>
 					<td>${boardVO.writer }</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regdate }"/></td>
-					<td><span class="badge bg-red">${boardVO.viewcnt }dd</span></td>
+					<td><span class="badge bg-red">${boardVO.viewcnt }</span></td>
 				</tr>
 			</c:forEach>
 		</table>

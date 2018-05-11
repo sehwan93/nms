@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.web.util.UriComponents;
+import org.springframework.web.util.UriComponentsBuilder;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"file:src/main/webapp/WEB-INF/spring/**/root-context.xml"})
@@ -66,4 +68,18 @@ public class BoardDAOTest {
 			System.out.println(board.getBno());
 		}
 	}
+	
+	@Test
+	public void testURI() throws Exception {
+		UriComponents uriComponents = UriComponentsBuilder.newInstance()
+				.path("/board/read")
+				.queryParam("bno", 12)
+				.queryParam("perPageNum", 20)
+				.build();
+		
+		logger.info("/board/read?bno=12&perPageNum=20");
+		logger.info(uriComponents.toString());
+		
+	}
+	
 }

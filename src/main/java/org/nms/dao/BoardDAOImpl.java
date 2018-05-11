@@ -50,7 +50,6 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int countPaging(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
 		return session.selectOne(namespace+".countPaging",cri);
 	}
 	

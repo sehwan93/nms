@@ -25,7 +25,7 @@
 		delete from tbl_board where bno=#{bno}
 	</delete>
 	
-	<select id="listAll" resultType="org.nms.vo.BoardVO">
+<!-- 	<select id="listAll" resultType="org.nms.vo.BoardVO">
 		<![CDATA[
 		SELECT 
 			bno,title,content,writer,regdate,viewcnt
@@ -36,7 +36,7 @@
 		ORDER BY 
 			bno desc, regdate desc
 		]]>
-	</select>
+	</select> -->
 	
 	<select id="listPage" resultType="BoardVO">
 		<![CDATA[
@@ -55,11 +55,9 @@
 	<select id="countPaging" resultType="int">
 		<![CDATA[
 		select
-			count(bno)
+			count(*)
 		from
-			tbl_borad
-		where
-			bno > 0
+			tbl_board
 		]]>
 	</select>
 </mapper>
