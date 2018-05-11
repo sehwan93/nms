@@ -4,6 +4,10 @@ public class Criteria {
 	private int page;
 	private int perPageNum;
 	
+	public int getPage() {
+		return page;
+	}
+
 	public Criteria() {
 		this.page = 1;
 		this.perPageNum = 10;

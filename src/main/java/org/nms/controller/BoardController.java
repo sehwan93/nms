@@ -2,6 +2,7 @@ package org.nms.controller;
 
 import org.nms.service.BoardService;
 import org.nms.util.Criteria;
+import org.nms.util.PageMaker;
 import org.nms.vo.BoardVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,18 +40,31 @@ public class BoardController {
 		
 		return "redirect:/board/listAll";
 	}
-	
-	@RequestMapping(value="/listAll",method=RequestMethod.GET)
+	//전체 출력
+	/*@RequestMapping(value="/listAll",method=RequestMethod.GET)
 	public void listAll(Model model) throws Exception {
 		logger.info("show all list.................");
 		model.addAttribute("list",service.listAll());
-	}
+	}*/
 	
-	@RequestMapping(value="/listCri",method=RequestMethod.GET)
+	/*@RequestMapping(value="/listCri",method=RequestMethod.GET)
 	public void listAll(Criteria cri,Model model) throws Exception{
 		logger.info("listcri...........................");
 		
 		model.addAttribute("list",service.listPage(cri));
+	}*/
+	
+	@RequestMapping(value="/listPage",method=RequestMethod.GET)
+	public void listPage( Criteria cri,Model model ) throws Exception {
+		logger.info(cri.toString());
+		
+		model.addAttribute("list",service.listPage(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(131);
+		
+		model.addAttribute("pageMaker",pageMaker);
 	}
 	
 	@RequestMapping(value="/read",method=RequestMethod.GET)

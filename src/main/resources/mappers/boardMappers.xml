@@ -51,4 +51,15 @@
 		]]>
 		
 	</select>
+	
+	<select id="countPaging" resultType="int">
+		<![CDATA[
+		select
+			count(bno)
+		from
+			tbl_borad
+		where
+			bno > 0
+		]]>
+	</select>
 </mapper>
